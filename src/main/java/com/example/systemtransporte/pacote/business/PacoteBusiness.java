@@ -1,10 +1,9 @@
 package com.example.systemtransporte.pacote.business;
-
-
 import com.example.systemtransporte.pacote.domain.Pacote;
 import com.example.systemtransporte.pacote.repository.PacoteRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Service
 public class PacoteBusiness {
@@ -18,8 +17,6 @@ public class PacoteBusiness {
         return pacoteRespository.findAll();
 
     }
-
-
 
     public void mandarPacote(Pacote pacote){
         if (validarPacote(pacote)){
@@ -35,13 +32,14 @@ public class PacoteBusiness {
     }
 
 
-    public void deletarPacoteNoSistema(long id){
+    public @ResponseBody
+    void deletarPacoteNoSistema(long id){
         pacoteRespository.deleteById(id);
     }
 
 
-    boolean validarPacote(Pacote pacote){
-        if(pacote.getDestino()!= null && pacote.getCliente().getCpf()!= null){
+    public boolean validarPacote(Pacote pacote){
+        if(!pacote.getDestino().isEmpty()){
             return true;
         }else {
             return false;
