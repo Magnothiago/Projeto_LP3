@@ -9,7 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "/api/cliente")
+@RequestMapping(path ="/api/cliente")
 public class ClienteController {
 
 
@@ -20,6 +20,7 @@ public class ClienteController {
     public Iterable<Cliente> listarCliente(){
         return clienteBusiness.listarCliente();
     }
+
     @PostMapping(path = "/add")
     public void cadastrarCliente(@RequestBody Cliente cliente){
         clienteBusiness.cadastrarCliente(cliente);

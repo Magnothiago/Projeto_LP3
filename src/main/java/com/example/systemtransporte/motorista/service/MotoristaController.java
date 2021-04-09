@@ -25,7 +25,6 @@ public class MotoristaController {
 
     @PutMapping(path = "/edit")
     public void editarMotoristas(@RequestBody Motorista motorista) {
-
         motoristaBusiness.editarMotorista(motorista);
     }
 
