@@ -21,7 +21,7 @@ public class MotoristaBusiness {
         if (validarCpf(motorista.getCpf()) && (!motorista.getCategoriaCarteira().isEmpty())) {
             motoristaRepository.save(motorista);
         } else {
-            System.err.println("Verifique a documentacao do motorista");
+            System.err.println("Verifique o cpf ou a carteira de habilitação do motorista");
         }
     }
 
