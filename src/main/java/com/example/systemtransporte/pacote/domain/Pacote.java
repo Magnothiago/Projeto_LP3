@@ -15,7 +15,7 @@ public class Pacote implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String descricao;
-    private BigDecimal valor;
+    private double valor;
     @Column(unique = true, nullable = false)
     private String codigo;
     private double peso;
@@ -44,11 +44,11 @@ public class Pacote implements Serializable {
         this.descricao = descricao;
     }
 
-    public BigDecimal getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(BigDecimal valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 
