@@ -24,7 +24,7 @@ public class SystemtransporteApplication {
     @Bean
     InitializingBean sendDatabase() {
         Cliente cliente = new Cliente();
-        cliente.setPrimeiroNome("Lucas");
+        cliente.setNome("Lucas");
         cliente.setDataNascimento(LocalDate.now());
         cliente.setDdd("98");
         cliente.setEmail("email@gmail.com");

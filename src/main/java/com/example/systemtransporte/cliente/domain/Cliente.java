@@ -13,7 +13,7 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String primeiroNome;
+    private String nome;
     private String ultimoNome;
     @Column(unique = true, nullable = false)
     private String cpf;
@@ -35,12 +35,12 @@ public class Cliente implements Serializable {
         this.id = id;
     }
 
-    public String getPrimeiroNome() {
-        return primeiroNome;
+    public String getNome() {
+        return nome;
     }
 
-    public void setPrimeiroNome(String primeiroNome) {
-        this.primeiroNome = primeiroNome;
+    public void setNome(String primeiroNome) {
+        this.nome = primeiroNome;
     }
 
     public String getUltimoNome() {

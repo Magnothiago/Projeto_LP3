@@ -4,8 +4,10 @@ import com.example.systemtransporte.cliente.business.ClienteBusiness;
 import com.example.systemtransporte.cliente.domain.Cliente;
 import com.example.systemtransporte.cliente.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 //import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,8 +24,13 @@ public class ClienteController {
     }
 
     @PostMapping(path = "/add")
-    public void cadastrarCliente(@RequestBody Cliente cliente){
-        clienteBusiness.cadastrarCliente(cliente);
+    public ResponseEntity<?> cadastrarCliente(@RequestBody Cliente cliente){
+        try {
+            clienteBusiness.cadastrarCliente(cliente);
+            return new ResponseEntity<>(cliente, HttpStatus.OK);
+        }catch (Exception ex){
+            return new ResponseEntity<>(ex, HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PutMapping(path = "/edit")
